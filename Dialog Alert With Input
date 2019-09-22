@@ -1,0 +1,30 @@
+// instantiate dialog
+val builder = AlertDialog.Builder(this)
+
+// instantiate the view for the dialog
+val viewInflated = layoutInflater.inflate(R.layout.dialog_signin, null)
+
+// inflate the view in the dialog
+builder.setView(viewInflated)
+
+// set the dialog title
+builder.setTitle("Title")
+
+// Set up the buttons
+builder.setPositiveButton("Go",
+    DialogInterface.OnClickListener { dialog, which ->
+
+        // do function here
+
+        // get the input text from the view and do as you need with it
+        val username = viewInflated.findViewById(R.id.username) as EditText
+
+        // dismiss dialog after
+        dialog.dismiss()
+    })
+builder.setNegativeButton("Cancel",
+    DialogInterface.OnClickListener { dialog, which ->
+        dialog.cancel()
+    })
+
+builder.show()
